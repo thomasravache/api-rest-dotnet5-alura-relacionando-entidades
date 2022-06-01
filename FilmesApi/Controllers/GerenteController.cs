@@ -30,7 +30,7 @@ namespace FilmesApi.Controllers
             return CreatedAtAction(nameof(RecuperaGerentesPorId), new { Id = gerente.Id }, gerente);
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public IActionResult RecuperaGerentesPorId(int id)
         {
             Gerente gerente = _context.Gerentes.FirstOrDefault(x => x.Id == id);
