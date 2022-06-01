@@ -33,6 +33,10 @@ namespace FilmesAPI
         {
             services.AddDbContext<AppDbContext>(opts => opts.UseSqlServer(Configuration.GetConnectionString("CinemaConnection")));
             services.AddControllers();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "FilmesApi", Version = "v1" });
+            });
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
