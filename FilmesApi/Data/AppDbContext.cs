@@ -27,6 +27,7 @@ namespace FilmesApi.Data
                     .HasForeignKey(cinema => cinema.GerenteId).IsRequired(false)
 
                     Para setar que não haja o efeito cascade (ou seja, que se um gerente for deletado, os cinemas relacionados a ele também seriam)
+                    No caso abaixo o delete vai ser restrito, ou seja, se houverem dependencias, nao será possível a deleção        
                     .OnDelete(DeleteBehavior.Restrict);
                 */
         }
