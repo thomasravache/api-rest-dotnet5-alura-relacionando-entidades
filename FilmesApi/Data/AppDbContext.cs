@@ -22,6 +22,13 @@ namespace FilmesApi.Data
                 .HasOne(cinema => cinema.Gerente)
                 .WithMany(gerente => gerente.Cinemas)
                 .HasForeignKey(cinema => cinema.GerenteId);
+                /*
+                    Se quiser que um cinema exista sem a obrigatoriedade de um gerente existir usar codigo abaixo
+                    .HasForeignKey(cinema => cinema.GerenteId).IsRequired(false)
+
+                    Para setar que não haja o efeito cascade (ou seja, que se um gerente for deletado, os cinemas relacionados a ele também seriam)
+                    .OnDelete(DeleteBehavior.Restrict);
+                */
         }
 
         public DbSet<Filme> Filmes { get; set; }
